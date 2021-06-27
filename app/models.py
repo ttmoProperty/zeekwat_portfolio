@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 class Navbar(models.Model):
 	logo = models.ImageField(upload_to='images/logo/%Y/%m/%d/')
@@ -26,7 +27,7 @@ class About(models.Model):
 	profile = models.ImageField(upload_to='images/profiles/%Y/%m/%d/')
 	title = models.TextField()
 	subtitle = models.TextField()
-	content = models.TextField()
+	content = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return self.title

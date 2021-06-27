@@ -1,0 +1,12 @@
+ZeeKwat Portfolio Confidential
+------------------------------
+Github Link 
+https://github.com/ttmoProperty/zeekwat_portfolio.git
+
+
+PythonAnywhere.com (HOSTING)
+----------------------------
+username : zeekwat
+password : zeekwat
+gmail    : zeekwat@gmail.com
+
