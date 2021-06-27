@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    /* color : #2d2d2d; */
+    font-family: 'Righteous', cursive;
+}
+
+navbar {
+    /*background-color: #fff;*/
+}
+
+.nav-link {
+    color : black;
+    font-size: 15px;
+    font-weight: 600;
+    cursor : pointer;
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+.nav-link:hover {
+    color : white;
+    background-color: #2d2d2d;
+}
+
+.navbar-brand {
+    font-size : 30px;
+    font-weight: 900;
+    color : black;
+    cursor : pointer;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color : #2d2d2d;
+}
+
+.main {
+    margin-top : 20px;
+    /*background-image : url("bg2.png");*/
+    /* background-image : url("https://logopond.com/logos/922892903729ef6f6ae31bfa5ea890b5.png"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    width: 100%;
+    height : 100vh;
+}
+
+.main h3 {
+    font-size: 50px;
+}
+
+.main h6 {
+    font-size: 20px;
+    text-transform: capitalize;
+    padding-bottom : 10px;
+    border-bottom: 3px solid #123456;
+    width: 80%;
+}
+
+.main .bt1 {
+    height: 55px;
+    width: 150px;
+    background-color: #2d2d2d;
+    color : white;
+    outline : none;
+    border : none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.main .bt1:hover {
+    background-color : #8B7335;
+    color : #fff;
+}
+
+.main .bt2:hover {
+    background-color : #2d2d2d;
+    color : #fff;
+}
+
+.main .bt2 {
+    height: 55px;
+    width: 150px;
+    background-color: transparent;
+    color : #2d2d2d;
+    outline : none;
+    border : 3px solid #2d2d2d;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 50px;
+}
+
+.card {
+    border : none;
+    outline : none;
+}
+
+.control {
+    text-align: center;
+}
+
+.control ul li{
+    list-style : none;
+    background-color: #2d2d2d;
+    color : white;
+    display: inline-block;
+    cursor: pointer;
+    width : 120px;
+    height : 55px;
+    box-sizing: border-box;
+    text-align : center;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+.control ul li:hover {
+    background-color : sandybrown;
+    color: #fff;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.middle {
+    text-align: center;
+}
+
+.item {
+    position: relative;
+}
+
+.item:hover {
+
+    transition: 0.5s;
+}
+
+.item span {
+    position: absolute;
+    top : 40%;
+    left : 45%;
+    font-size: 40px;
+    color : black;
+    cursor: pointer;
+    opacity: 0;    
+}
+
+.item:hover span {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.item:before {
+    content : "";
+    left : 0;
+    top : 0;
+    height : 100%;
+    width : 100%;
+    background-color : #efefef;
+    opacity: 0;
+    position : absolute;
+}
+
+.item:hover:before {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.footer {
+    width: 100%;
+    background-color: #2d2d2d;
+    color : #fff;
+    height: 60px;
+}
+
+.developer {
+    text-decoration: none;
+    color: sandybrown;
+}
+
+.developer:hover {
+    color : #8B7335;
+}
+
+.service-text {
+    color: #fff;
+}
+
+.service-gallery {
+    background-color: #344c4c;
+}
+
+.dropdowna {
+    text-align: center;
+}

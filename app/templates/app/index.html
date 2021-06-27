@@ -1,0 +1,299 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href="{% static 'app/index.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ZeeKwat</title>
+    <link rel="icon" href="{% static 'app/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+
+{% for nav in navs %}
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top text-uppercase">
+        <div class="container">
+            <img src='{{ nav.logo.url }}' width="45px" class='me-3' /> 
+          <a class="navbar-brand px-lg-6" href="{% url 'index' %}">{{ nav.title }}</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active px-lg-4 rounded" href="#">{{ nav.tab1 }}</a>
+              <a class="nav-link active px-lg-4 rounded" href="#about">{{ nav.tab2 }}</a>
+              <a class="nav-link active px-lg-4 rounded" href="#services">{{ nav.tab3 }}</a>
+              <a class="nav-link active px-lg-4 rounded" href="#artwork">{{ nav.tab4 }}</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+{% endfor %}
+
+
+
+{% for landing in landings %}
+      <section class="main py-5" style="background-image : url('{{ landing.background.url }}');">
+            <div class="container py-5">
+                <div class="row py-5">
+                    <div class="col-lg-6 py-5">
+                        <h3><small>{{ landing.pre_text }}</small><br>
+                        {{ landing.main_text }}</h3>
+                        <h6 class="pt-3 typing">{{ landing.line_text }}</h6>
+
+<!--                         <input type='button' value='Download CV' class="bt1 mt-5 me-3">
+                        <input type='button' value='Contact Me' class='bt2 mt-5'> -->
+
+                        <a href='{{ landing.download_link }}' target='_blank' class="btn bt1 mt-5 me-3">DownloadCV</a>
+                        <a href='#about' class='btn bt2 mt-5'>Contact Me</a>
+                    </div>
+                </div>
+            </div>
+      </section>
+{% endfor %}
+
+
+{% for about in abouts %}
+      <section class="about py-5" id='about'>
+          <div class="container py-5">
+              <div class="row">
+                  <div class="col-lg-5">
+                    <img src='{{ about.profile.url }}' 
+                    alt='zeekwat-profile'
+                    class="img-fluid" />
+                    <!-- width="100%"  -->
+                  </div>
+
+                  <div class="col-lg-7">
+                    <h1>{{ about.title }}</h1>
+                    <p>{{ about.subtitle }}</p>
+                    <p class="py-3">
+                        {{ about.content }}
+                    </p>
+
+                    <a target="_blank" href='https://www.facebook.com/htet.a.win.7796' class='btn btn-sm btn-dark me-3'>Facebook</a>
+
+                    <a target="_blank" href='https://www.instagram.com/moe_yay_zat' class="btn btn-sm btn-dark me-3">Instagram</a>
+
+                    <a target="_blank" href='tel:09250088042' class="btn btn-sm btn-dark rounded">Call Me</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+{% endfor %}
+
+
+      <section class="services py-5 service-gallery" id='services'>
+          <div class="container py-5">
+              <h2 align='center' class='pb-5 service-text'>Services and Companies</h2>
+              <div class="row pb-3">
+                  
+                {% for service in services %}
+                <div class="col-lg-4 mb-3 pb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    <!-- Logo -->
+                                    {{ service.service_title }}
+                                </h4>
+                                <p align='center'>
+                                    <!-- သိမ့်ကိုချစ်တဲ့ စိတ်နဲ့ပဲ<br>logo လှလှလေးတွေ ဆွဲပေးပါတယ်။  -->
+                                    {{ service.service_content }}
+                                </p>
+
+                        </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+
+                  <!-- <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    Graphic Design
+                                </h4>
+                                <p align='center'>
+                                    သိမ့် စိတ်နဲ့ပဲ graphic design<br> လှလှလေးတွေ ဆွဲပေးပါတယ်။
+                                </p>
+
+                        </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    Mentor
+                                </h4>
+                                <p align='center'>
+                                    သင့်တင့်မျှတတဲ့ စျေးနှုန်းနဲ့လဲ<br>
+                                    graphic design အကြံပေးပါတယ်။
+                                </p>
+
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    MAVEN
+                                </h4>
+                                <p align='center'>
+                                    Graphic Designer at Maven Technology
+                                </p>
+
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    TakoYaki
+                                </h4>
+                                <p align='center'>
+                                    Graphic Designer at TakoYaki Food
+                                </p>
+
+                        </div>
+                    </div>
+                  </div> -->
+
+<!--                   <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h4 align='center' class='pb-2'>
+                                    Freelance
+                                </h4>
+                                <p align='center'>
+                                    သိမ့်ကို တချက်တချက် သတိရနေပေမယ့်
+                                    ပျော်ပါးစွာရွက်လွင့်လျက်ရှိ 
+                                </p>
+
+                        </div>
+                    </div>
+                  </div>
+ -->
+              </div>
+          </div>
+      </section>
+
+
+
+      <section class="portfolio py-5" id='artwork'>
+          <div class="container py-5">
+              <h3 class="pb-3" align='center'>Art Works</h3>
+
+<!--          <div class="control">
+                  <ul>
+                      <li class="button me-3">All</li>
+                      <li class="button">Category</li>
+                  </ul>
+              </div> -->
+
+
+
+                <div class="dropdown middle pb-3">
+                {% if category %}
+                    {{ category.category_name }}
+                {% else %}
+                    All Designs
+                {% endif %}
+                  <a class="btn btn-secondary ms-4" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'index' %}#artwork">
+                                All Designs
+                            </a>
+                        </li>
+                    {% for category in categories %}
+                        <li>
+                            <a class="dropdown-item" href="{{ category.get_absolute_url }}#artwork">
+                                {{ category.category_name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+              <div class="row">
+
+                {% for art in page.object_list %}
+                  <div class="col-lg-4 middle pt-4">
+                      <div class="item">
+                        <img src='{{ art.artmage.url }}'
+                        class='img-fluid'>
+                        <span><i class="fa fa-plus" data-toggle='modal' data-target='#{{ art.id }}'></i></span>
+                      </div>
+                  </div>
+
+                     <div class="portfolio-modal modal fade mt-5" id='{{ art.id }}' aria-hidden='true' role='dialog'>
+                              <div class="modal-dialog modal-md" role='document'>
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="container-fluid py-3">
+                                            <div class="row justify-content-center">
+                                                    <h4 align="center">{{ art.caption }}</h4>
+                                                <div class="col-lg-12">
+                                                    <img src='{{ art.artmage.url }}'
+                                                    class="img-fluid rounded"
+                                                    alt='This is an image' />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                {% endfor %}
+
+                
+
+                <div class="page-links pt-4">
+                    Page Number : {{ page.number }}
+                    {% if page.has_previous %}
+                        <a href='{% url "index" %}?page={{ page.previous_page_number }}#artwork' class="btn btn-sm btn-dark ms-4">Previous Page</a>
+                    {% endif %}
+
+                    {% if page.has_next %}
+                        <a href='{% url "index" %}?page={{ page.next_page_number }}#artwork' class="btn btn-sm btn-dark ms-4" >Next Page</a>
+                    {% endif %}
+
+                </div>
+
+              </div>
+
+
+          </div>
+      </section>
+
+
+     
+
+
+      <div class="row footer">
+        <div class="col-lg-12">
+            <p align='center' class="footer-text">ကိုမိုးရဲ့ website ကို ဒီ<a href="https://springzephyr.pythonanywhere.com/" target="_blank" class='developer'>ကောင်လေး</a>ရေးပေးတာပါ။</p>
+        </div>
+      </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
